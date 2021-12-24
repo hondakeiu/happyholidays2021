@@ -95,8 +95,10 @@
           content: "<<";
           margin-left: -0.4em;
         }
-        &:hover {
-          transform: translateX(-10%);
+        @media (hover: hover) and (pointer: fine) {
+          &:hover {
+            transform: translateX(-10%);
+          }
         }
       }
       .swiper-button-next {
@@ -109,8 +111,10 @@
         &::after {
           content: ">>";
         }
-        &:hover {
-          transform: translateX(10%);
+        @media (hover: hover) and (pointer: fine) {
+          &:hover {
+            transform: translateX(10%);
+          }
         }
       }
     }
@@ -132,7 +136,7 @@
       }
     }
     .santa {
-      background: rgba($gold, 0.14);
+      background: rgba($red, 0.1);
       &__hat {
         z-index: 4;
         top: 9em;
@@ -178,7 +182,7 @@
         z-index: 2;
         background: $white;
         width: 24.5em;
-        height: 24.5em;
+        height: 24em;
         top: 19em;
         left: 12.8em;
         border-radius: 52% 54% 58% 60% / 33% 34% 83% 82%;
@@ -246,7 +250,7 @@
         }
       }
       &:hover {
-        background: rgba($gold, 0.18);
+        background: rgba($red, 0.14);
         .santa__hat {
           transform: skewX(-2deg);
         }
@@ -264,7 +268,7 @@
       }
     }
     .tree {
-      background: rgba($tree-m, 0.14);
+      background: rgba($tree-m, 0.09);
       &__star {
         z-index: 6;
         width: 2.6em;
@@ -356,7 +360,7 @@
         border-radius: 50%;
         background: $base;
         opacity: 0.9;
-        box-shadow: 0 0 1em currentColor;
+        box-shadow: 0 0 1.5em currentColor;
         color: transparent;
         transition: color 0.2s ease-out, opacity 0.2s ease-out;
         &--01 {
@@ -399,7 +403,7 @@
         }
       }
       &:hover {
-        background: rgba($tree-m, 0.18);
+        background: rgba($tree-m, 0.13);
         .tree__star {
           color: $light-star;
           &::after {
@@ -407,32 +411,84 @@
           }
         }
         .tree__light {
-          color: rgba($base, 0.5);
+          color: rgba($base, 0.7);
           opacity: 1;
         }
       }
     }
     .reindeer {
-      background: rgba($red, 0.14);
+      background: rgba($deer-m, 0.16);
       &__face {
-        width: 21em;
-        height: 24em;
-        background: $mocha;
-        border-radius: 60% 60% 62% 64% / 70% 70% 54% 58%;
-        top: 18em;
-        left: 14.5em;
+        z-index: 2;
+        width: 21.5em;
+        height: 24.5em;
+        background: $deer-m;
+        border-radius: 75% 81% 83% 78% / 67% 68% 99% 91%;
+        top: 17.5em;
+        left: 14.2em;
+        overflow: hidden;
+        box-shadow: inset -0.3em -0.3em 1em rgba($deer-d, 0.1);
+        &__bottom {
+          z-index: 3;
+          background: $face;
+          opacity: 0.8;
+          width: 20.5em;
+          height: 12em;
+          left: 0.5em;
+          top: 12.5em;
+          border-radius: 50%;
+          border-radius: 75% 81% 83% 78% / 67% 68% 99% 91%;
+          box-shadow: inset 0 0 1em rgba($deer-m, 0.3);
+        }
+        &__nose {
+          z-index: 4;
+          width: 6em;
+          height: 5.3em;
+          left: 7em;
+          top: 11.7em;
+          background: $deer-d;
+          border-radius: 75% 81% 83% 78% / 76% 76% 80% 90%;
+          box-shadow: inset 0 0 1em rgba($deer-d, 0.1);
+          transition: transform 0.2s ease-out;
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 1.1em;
+            height: 1em;
+            background: $face;
+            border-radius: 50%;
+            top: 1.1em;
+            left: 1.4em;
+            transform: rotate(-10deg);
+            box-shadow: 0 0 3em $white;
+          }
+        }
+        &__eye {
+          width: 1.5em;
+          height: 1.5em;
+          background: $black;
+          border-radius: 50%;
+          top: 10em;
+          &--left {
+            left: 7em;
+          }
+          &--right {
+            left: 11.5em;
+          }
+        }
       }
       &__horn {
-        background: $brown;
+        background: $deer-d;
         width: 1.3em;
         height: 15em;
-        top: 9.5em;
+        top: 8.5em;
         transition: transform 0.2s ease-out;
         &--left {
-          transform: rotate(-20deg);
-          left: 19em;
+          transform: rotate(-23deg);
+          left: 18.5em;
           span {
-            transform: rotate(20deg);
+            transform: rotate(23deg);
             &::before {
               transform: rotate(-60deg);
               top: 1.5em;
@@ -449,10 +505,10 @@
           }
         }
         &--right {
-          transform: rotate(20deg);
-          left: 29.2em;
+          transform: rotate(23deg);
+          left: 29.5em;
           span {
-            transform: rotate(-20deg);
+            transform: rotate(-23deg);
             &::before {
               transform: rotate(-20deg);
               top: 1.5em;
@@ -470,7 +526,7 @@
         }
         span {
           &::before {
-            background: $brown;
+            background: $deer-d;
             content: "";
             display: block;
             position: absolute;
@@ -478,7 +534,7 @@
             height: 4em;
           }
           &::after {
-            background: $brown;
+            background: $deer-d;
             content: "";
             display: block;
             position: absolute;
@@ -488,28 +544,38 @@
         }
       }
       &__ear {
-        background: $mocha;
-        opacity: 0.9;
-        width: 11em;
+        background: $deer-m;
+        width: 8em;
         height: 4.3em;
         border-radius: 63% 33% 53% 64% / 100% 0% 100% 0%;
-        top: 20.5em;
+        top: 20em;
+        box-shadow: inset 0 0 1em rgba($deer-d, 0.1);
+        transition: transform 0.2s ease-out;
         &--left {
-          left: 11em;
-          transform: rotate(13deg) scale(1, -1);
+          left: 10em;
+          transform: rotate(10deg) scale(1, -1);
         }
         &--right {
-          left: 28em;
-          transform: rotate(-13deg);
+          left: 31.6em;
+          transform: rotate(-10deg);
         }
       }
       &:hover {
-        background: rgba($red, 0.18);
+        background: rgba($deer-m, 0.2);
         .reindeer__horn--left {
-          transform: rotate(-23deg) translate(-0.3em, 0);
+          transform: rotate(-20deg) translate(0.3em, 0);
         }
         .reindeer__horn--right {
-          transform: rotate(23deg) translate(0.3em, 0);
+          transform: rotate(20deg) translate(-0.3em, 0);
+        }
+        .reindeer__ear--left {
+          transform: rotate(20deg) scale(1, -1) translate(0, 0.4em);
+        }
+        .reindeer__ear--right {
+          transform: rotate(-23deg) translate(0, -0.4em);
+        }
+        .reindeer__face__nose {
+          transform: translate(0, -0.2em);
         }
       }
     }
