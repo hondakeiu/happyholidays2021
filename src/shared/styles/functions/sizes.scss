@@ -1,0 +1,5 @@
+@use "sass:math";
+
+@function spx($value) {
+  @return math.div($value, 768) * 100vw;
+}

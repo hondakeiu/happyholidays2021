@@ -1,0 +1,517 @@
+@use "../../shared/styles/mixins/font-family.scss" as *;
+@use "../../shared/styles/variables/colors.scss" as *;
+@use "../../shared/styles/mixins/mq.scss" as *;
+@use "../../shared/styles/functions/sizes.scss" as *;
+
+.holidays {
+  text-align: center;
+  background: $base;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include pc {
+    min-height: 70em;
+  }
+  @include sp {
+    @media (min-aspect-ratio: 1/1) {
+      min-height: 100vw;
+    }
+  }
+  // #cursor {
+  //   z-index: 100;
+  //   pointer-events: none;
+  //   position: absolute;
+  //   top: -12px;
+  //   left: -12px;
+  //   width: 24px;
+  //   height: 24px;
+  //   transition: transform 0s ease-out;
+  //   span {
+  //     display: block;
+  //     width: 100%;
+  //     height: 100%;
+  //     transform: scale(0.85);
+  //     background: $cursor-gold;
+  //     transition: transform 0.4s ease-out;
+  //     clip-path: path("M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z");
+  //   }
+  // }
+  h1 {
+    @include bitcount;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    color: $gold;
+    @include pc {
+      padding-top: 0.5em;
+      font-size: 3.9em;
+    }
+    @include sp {
+      padding-top: 1em;
+      font-size: 4.2em;
+    }
+  }
+  // swiper
+  .characters {
+    height: 50em;
+    @include pc {
+      margin-top: 2em;
+    }
+    @include sp {
+      margin-top: 3em;
+      margin-bottom: 5em;
+    }
+    .swiper {
+      .swiper-button-prev,
+      .swiper-button-next {
+        // cursor: none;
+        left: auto;
+        right: auto;
+        width: 5em;
+        height: 5em;
+        margin: 0;
+        top: 21.5em;
+        transition: transform 0.2s ease-out;
+        &::after {
+          @include bitcount;
+          font-size: 5.3em;
+          letter-spacing: -0.3em;
+          color: $gold;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .swiper-button-prev {
+        @include pc {
+          left: calc(50% - 32.5em);
+        }
+        @include sp {
+          left: 6em;
+        }
+        &::after {
+          content: "<<";
+          margin-left: -0.4em;
+        }
+        &:hover {
+          transform: translateX(-10%);
+        }
+      }
+      .swiper-button-next {
+        @include pc {
+          right: calc(50% - 32.5em);
+        }
+        @include sp {
+          right: 6em;
+        }
+        &::after {
+          content: ">>";
+        }
+        &:hover {
+          transform: translateX(10%);
+        }
+      }
+    }
+    .character {
+      cursor: pointer;
+      z-index: 10;
+      margin: 0 auto;
+      position: relative;
+      width: 50em;
+      height: 50em;
+      box-sizing: content-box;
+      border-radius: 50%;
+      transition: background 0.4s ease-out;
+      transform: scale(0.85);
+      filter: drop-shadow(0 0 1em $shadow);
+      span {
+        position: absolute;
+        display: block;
+      }
+    }
+    .santa {
+      background: rgba($gold, 0.14);
+      &__hat {
+        z-index: 4;
+        top: 9em;
+        left: 13.5em;
+        width: 23em;
+        height: 14em;
+        background: $red;
+        border-radius: 55% 46% 0% 0% / 100% 100% 0% 0%;
+        transition: transform 0.2s ease-out;
+        transform-origin: bottom center;
+      }
+      &__ponpon {
+        z-index: 5;
+        &--top {
+          width: 7em;
+          height: 6.8em;
+          border-radius: 50%;
+          top: 5em;
+          left: 24em;
+          background: $white;
+          box-shadow: inset -1px -2px 1px $shadow;
+          transition: transform 0.2s ease-out;
+        }
+        &--bottom {
+          height: 7em;
+          top: 20.3em;
+          left: 12.4em;
+          display: flex !important;
+          flex-wrap: nowrap;
+          justify-content: center;
+          filter: drop-shadow(0px 1px 1px $shadow);
+          > span {
+            position: relative;
+            width: 7em;
+            height: 7em;
+            border-radius: 50%;
+            background: $white;
+            margin: 0 -1.4em;
+          }
+        }
+      }
+      &__beard {
+        z-index: 2;
+        background: $white;
+        width: 24.5em;
+        height: 24.5em;
+        top: 19em;
+        left: 12.8em;
+        border-radius: 52% 54% 58% 60% / 33% 34% 83% 82%;
+      }
+      &__face {
+        z-index: 3;
+        background: $face;
+        width: 18em;
+        height: 18em;
+        border-radius: 58% 60% 58% 60% / 37% 29% 54% 56%;
+        top: 17.5em;
+        left: 16em;
+        box-shadow: inset 0 0 5px $shadow;
+        &__eye {
+          z-index: 5;
+          background: $black;
+          width: 1.2em;
+          height: 1.2em;
+          border-radius: 50%;
+          top: 11.1em;
+          &--left {
+            left: 6em;
+          }
+          &--right {
+            left: 10em;
+          }
+        }
+        &__nose {
+          z-index: 6;
+          width: 2.5em;
+          height: 2.3em;
+          background: $pink;
+          border-radius: 50%;
+          top: 12.9em;
+          left: 7.4em;
+          box-shadow: inset -1px -1px 3px $shadow;
+        }
+        &__mustache {
+          width: 6.5em;
+          height: 6em;
+          top: 15em;
+          left: 3em;
+          filter: drop-shadow(0px 1px 1px $shadow);
+          &::before,
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            border-radius: 87% 51% 100% 0% / 100% 52% 100% 0%;
+            background: $white;
+            transform-origin: top right;
+            transition: transform 0.2s ease-out;
+          }
+          &::before {
+            left: 0;
+            transform: rotate(10deg) translate(-10%, -20%);
+          }
+          &::after {
+            left: -2em;
+            transform: scale(-1, 1) rotate(10deg) translate(-10%, -20%);
+          }
+        }
+      }
+      &:hover {
+        background: rgba($gold, 0.18);
+        .santa__hat {
+          transform: skewX(-2deg);
+        }
+        .santa__ponpon--top {
+          transform: translate(0.7em, 0.2em);
+        }
+        .santa__face__mustache {
+          &::before {
+            transform: rotate(35deg);
+          }
+          &::after {
+            transform: scale(-1, 1) rotate(35deg);
+          }
+        }
+      }
+    }
+    .tree {
+      background: rgba($tree-m, 0.14);
+      &__star {
+        z-index: 6;
+        width: 2.6em;
+        height: 2.6em;
+        top: 8em;
+        left: 23.2em;
+        transform: scale(3);
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          color: $star;
+          mask: url("/src/home/images/tree_star.svg") center / contain no-repeat;
+          transition: color 0.2s ease-out;
+          background: currentColor;
+          color: $star;
+          box-shadow: inset 0 0 2em $star;
+        }
+      }
+      &__bar {
+        z-index: 2;
+        background: $star;
+        width: 1em;
+        height: 3em;
+        top: 10.5em;
+        left: 24em;
+        box-shadow: inset 0 1em 0.5em rgba($gold, 0.3);
+      }
+      &__set {
+        span {
+          background: $tree-d;
+          border-radius: 93% 100% 100% 100% / 100% 100% 54% 51%;
+        }
+        &__01 {
+          width: 5.5em;
+          height: 10em;
+          top: 1.2em;
+          left: 5.4em;
+          transform: rotate(3deg);
+        }
+        &__02 {
+          width: 4.7em;
+          height: 12em;
+          top: 0;
+          left: 2.7em;
+          transform: rotate(40deg);
+        }
+        &__03 {
+          width: 5.2em;
+          height: 11.8em;
+          top: 0;
+          left: 8.2em;
+          transform: rotate(-39deg);
+        }
+        &--top {
+          z-index: 5;
+          top: 11.8em;
+          left: 16.5em;
+        }
+        &--middle {
+          z-index: 4;
+          top: 16.8em;
+          left: 15.1em;
+          transform: scale(1.2) rotate(1deg);
+          span {
+            background: $tree-m;
+          }
+        }
+        &--bottom {
+          z-index: 3;
+          top: 22.5em;
+          left: 13.2em;
+          transform: scale(1.4) rotate(-1deg);
+        }
+      }
+      &__trunk {
+        background: $gold;
+        width: 3em;
+        height: 8em;
+        top: 34.2em;
+        left: 23.1em;
+      }
+      &__light {
+        z-index: 8;
+        width: 1.3em;
+        height: 1.3em;
+        border-radius: 50%;
+        background: $base;
+        opacity: 0.9;
+        box-shadow: 0 0 1em currentColor;
+        color: transparent;
+        transition: color 0.2s ease-out, opacity 0.2s ease-out;
+        &--01 {
+          top: 17.5em;
+          left: 21em;
+        }
+        &--02 {
+          top: 16em;
+          left: 25.5em;
+        }
+        &--03 {
+          top: 24em;
+          left: 19em;
+        }
+        &--04 {
+          top: 26em;
+          left: 24em;
+        }
+        &--05 {
+          top: 24em;
+          left: 28em;
+        }
+        &--06 {
+          top: 32em;
+          left: 17.5em;
+        }
+        &--07 {
+          top: 33.3em;
+          left: 22.5em;
+        }
+        &--08 {
+          top: 31.8em;
+          left: 29.5em;
+        }
+        &--02,
+        &--03,
+        &--08 {
+          width: 1.6em;
+          height: 1.6em;
+        }
+      }
+      &:hover {
+        background: rgba($tree-m, 0.18);
+        .tree__star {
+          color: $light-star;
+          &::after {
+            color: $light-star;
+          }
+        }
+        .tree__light {
+          color: rgba($base, 0.5);
+          opacity: 1;
+        }
+      }
+    }
+    .reindeer {
+      background: rgba($red, 0.14);
+      &__face {
+        width: 21em;
+        height: 24em;
+        background: $mocha;
+        border-radius: 60% 60% 62% 64% / 70% 70% 54% 58%;
+        top: 18em;
+        left: 14.5em;
+      }
+      &__horn {
+        background: $brown;
+        width: 1.3em;
+        height: 15em;
+        top: 9.5em;
+        transition: transform 0.2s ease-out;
+        &--left {
+          transform: rotate(-20deg);
+          left: 19em;
+          span {
+            transform: rotate(20deg);
+            &::before {
+              transform: rotate(-60deg);
+              top: 1.5em;
+              left: 0.2em;
+            }
+            &::after {
+              transform: rotate(20deg);
+              top: 0.5em;
+              left: 2.2em;
+            }
+            &:nth-of-type(2) {
+              transform: rotate(20deg) translate(1em, 3em);
+            }
+          }
+        }
+        &--right {
+          transform: rotate(20deg);
+          left: 29.2em;
+          span {
+            transform: rotate(-20deg);
+            &::before {
+              transform: rotate(-20deg);
+              top: 1.5em;
+              left: -2.3em;
+            }
+            &::after {
+              transform: rotate(60deg);
+              top: 2em;
+              left: -0.3em;
+            }
+            &:nth-of-type(2) {
+              transform: rotate(-20deg) translate(-1em, 3em);
+            }
+          }
+        }
+        span {
+          &::before {
+            background: $brown;
+            content: "";
+            display: block;
+            position: absolute;
+            width: 1.3em;
+            height: 4em;
+          }
+          &::after {
+            background: $brown;
+            content: "";
+            display: block;
+            position: absolute;
+            width: 1.3em;
+            height: 4em;
+          }
+        }
+      }
+      &__ear {
+        background: $mocha;
+        opacity: 0.9;
+        width: 11em;
+        height: 4.3em;
+        border-radius: 63% 33% 53% 64% / 100% 0% 100% 0%;
+        top: 20.5em;
+        &--left {
+          left: 11em;
+          transform: rotate(13deg) scale(1, -1);
+        }
+        &--right {
+          left: 28em;
+          transform: rotate(-13deg);
+        }
+      }
+      &:hover {
+        background: rgba($red, 0.18);
+        .reindeer__horn--left {
+          transform: rotate(-23deg) translate(-0.3em, 0);
+        }
+        .reindeer__horn--right {
+          transform: rotate(23deg) translate(0.3em, 0);
+        }
+      }
+    }
+  }
+}

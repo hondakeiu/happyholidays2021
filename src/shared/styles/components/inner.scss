@@ -1,0 +1,10 @@
+@use '../functions/sizes.scss' as *;
+@use '../mixins/mq.scss' as *;
+
+.inner {
+  display: block;
+  @include pc {
+    margin: 0 auto;
+    width: 1366px;
+  }
+}

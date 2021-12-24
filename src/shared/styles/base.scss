@@ -1,0 +1,40 @@
+@use "./functions/sizes.scss" as *;
+@use "./mixins/mq.scss" as *;
+@use "./mixins/font-family.scss" as *;
+@use "./variables/colors.scss" as *;
+
+html {
+  // cursor: none;
+  @include pc {
+    font-size: 10px;
+  }
+  @include sp {
+    font-size: spx(10);
+  }
+}
+body {
+  width: 100%;
+  text-size-adjust: 100%;
+  color: $black;
+  background: $base;
+  letter-spacing: 0;
+  line-height: 1.3;
+  // cursor: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  // cursor: none;
+}

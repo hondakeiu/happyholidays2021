@@ -1,0 +1,14 @@
+@use "./../../../node_modules/swiper/swiper-bundle.css";
+@use "./base.scss";
+
+// header
+@use "./components/header.scss";
+
+// common
+@use "./components/main.scss";
+@use "./components/inner.scss";
+
+// footer
+@use "./components/footer.scss";
+
+@use "./utils.scss";

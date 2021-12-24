@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  {{> 'meta'
+    title='happy holidays 2021'
+    description=''
+    ogType='website'
+  }}
+</head>
+
+<body>
+  {{#> 'layout-default'
+  }}
+
+  <div class="holidays">
+    <h1>happy holidays 2021</h1>
+    <div class="characters">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="character santa">
+              <span class="santa__hat"></span>
+              <span class="santa__ponpon santa__ponpon--top"></span>
+              <span class="santa__ponpon santa__ponpon--bottom">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+              <span class="santa__beard"></span>
+              <span class="santa__face">
+                <span class="santa__face__eye santa__face__eye--left"></span>
+                <span class="santa__face__eye santa__face__eye--right"></span>
+                <span class="santa__face__mustache"></span>
+                <span class="santa__face__nose"></span>
+              </span>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="character tree">
+              <span class="tree__star"></span>
+              <span class="tree__bar"></span>
+              <span class="tree__light tree__light--01"></span>
+              <span class="tree__light tree__light--02"></span>
+              <span class="tree__light tree__light--03"></span>
+              <span class="tree__light tree__light--04"></span>
+              <span class="tree__light tree__light--05"></span>
+              <span class="tree__light tree__light--06"></span>
+              <span class="tree__light tree__light--07"></span>
+              <span class="tree__light tree__light--08"></span>
+              <span class="tree__set tree__set--top">
+                <span class="tree__set__01"></span>
+                <span class="tree__set__02"></span>
+                <span class="tree__set__03"></span>
+              </span>
+              <span class="tree__set tree__set--middle ">
+                <span class="tree__set__01"></span>
+                <span class="tree__set__02"></span>
+                <span class="tree__set__03"></span>
+              </span>
+              <span class="tree__set tree__set--bottom">
+                <span class="tree__set__01"></span>
+                <span class="tree__set__02"></span>
+                <span class="tree__set__03"></span>
+              </span>
+              <span class="tree__trunk"></span>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="character reindeer">
+              <span class="reindeer__horn reindeer__horn--left">
+                <span></span>
+                <span></span>
+              </span>
+              <span class="reindeer__horn reindeer__horn--right">
+                <span></span>
+                <span></span>
+              </span>
+              <span class="reindeer__ear reindeer__ear--left"></span>
+              <span class="reindeer__ear reindeer__ear--right"></span>
+              <span class="reindeer__face">
+                <span class="reindeer__face__eye reindeer__face__eye--left"></span>
+                <span class="reindeer__face__eye reindeer__face__eye--right"></span>
+                <span class="reindeer__face__bottom">
+                  <span class="reindeer__face__bottom__nose"></span>
+                </span>
+              </span>
+
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </div>
+
+
+  {{/ 'layout-default' }}
+  <script defer type="module" src="/src/home/index.js"></script>
+</body>
+
+</html>
