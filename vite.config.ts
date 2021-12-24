@@ -9,12 +9,13 @@ import handlebars from "vite-plugin-handlebars";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/happyholidays2021/",
   plugins: [
     handlebars({
       partialDirectory: path.resolve(__dirname, "./src/partials/"),
       context: {
         data: {
-          productionRoot: "", //ここは本番ドメインのルートを記載するところ
+          productionRoot: "https://kimurakeiu.github.io/happyholidays2021/", //ここは本番ドメインのルートを記載するところ
         },
       },
       helpers: {
