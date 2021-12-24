@@ -26,6 +26,7 @@ export default defineConfig({
     }),
   ],
   build: {
+    outDir: "docs",
     rollupOptions: {
       input: {
         home: path.resolve(__dirname, "./index.html"),
